@@ -1,12 +1,11 @@
 # ⚡ TechMart — Full-Stack E-Commerce Application
 
-TechMart adalah aplikasi e-commerce full-stack untuk penjualan produk elektronik, dibangun dari nol menggunakan **Golang** (backend), **Angular** (frontend), dan **MySQL** (database). Project ini mencakup alur bisnis e-commerce yang lengkap — mulai dari autentikasi, manajemen produk, keranjang belanja, checkout, pembayaran manual, hingga dashboard admin dengan statistik penjualan.
+TechMart is a full-stack e-commerce application for selling electronic products, built from scratch using **Golang** (backend), **Angular** (frontend), and **MySQL** (database). This project covers a complete e-commerce business flow — from authentication, product management, shopping cart, checkout, manual payment, to an admin dashboard with sales statistics.
 
 ## 🔗 Live Demo
 
-- **Frontend:** _(akan ditambahkan setelah deployment)_
-- **Backend API:** _(akan ditambahkan setelah deployment)_
-
+- **Frontend:** _(to be added after deployment)_
+- **Backend API:** _(to be added after deployment)_
 
 ## 🛠️ Tech Stack
 
@@ -14,148 +13,148 @@ TechMart adalah aplikasi e-commerce full-stack untuk penjualan produk elektronik
 - Golang + [Gin](https://gin-gonic.com/) (web framework)
 - [GORM](https://gorm.io/) (ORM)
 - MySQL (database)
-- JWT (autentikasi)
-- Bcrypt (hashing password)
+- JWT (authentication)
+- Bcrypt (password hashing)
 
 **Frontend**
 - Angular 18 (standalone components)
-- Angular Material concepts + custom CSS
-- Chart.js (visualisasi data)
+- Custom CSS with a minimalist design system
+- Chart.js (data visualization)
 - RxJS
 
-**Lainnya**
+**Others**
 - RESTful API
 - Role-Based Access Control (Admin & Customer)
-- File upload (gambar produk, foto profil, bukti transfer)
+- File upload (product images, profile photos, payment proofs)
 
-## ✨ Fitur Utama
+## ✨ Key Features
 
-### Autentikasi & Keamanan
-- Register & Login dengan JWT
+### Authentication & Security
+- Register & Login with JWT
 - Role-based access control (Admin vs Customer)
-- Route guard di frontend (proteksi halaman sesuai role)
-- Lupa password dengan security question
-- Ganti password dari halaman profil
+- Frontend route guards (protecting pages based on role)
+- Forgot password with security question
+- Change password from profile page
 
-### Untuk Customer
-- Jelajahi katalog produk dengan search, filter kategori, dan pagination
-- Halaman detail produk
-- Keranjang belanja (tambah, ubah jumlah, hapus)
-- Checkout & pembayaran manual (upload bukti transfer)
-- Riwayat pesanan dengan tracking status
-- Edit profil (nama, jenis kelamin, foto profil)
-- Notifikasi in-app real-time (status pesanan, dll)
+### For Customers
+- Browse product catalog with search, category filter, and pagination
+- Product detail page
+- Shopping cart (add, update quantity, remove items)
+- Checkout & manual payment (upload transfer proof)
+- Order history with status tracking
+- Edit profile (name, gender, profile photo)
+- In-app notifications (order status updates, etc.)
 
-### Untuk Admin
-- Dashboard dengan statistik toko (grafik pendapatan, produk terlaris, status pesanan)
-- Kelola produk (CRUD lengkap + upload gambar)
-- Kelola kategori produk
-- Kelola pesanan (verifikasi pembayaran, update status)
-- Kelola customer (lihat profil & riwayat belanja setiap customer)
-- Admin tidak dapat berbelanja (role separation yang konsisten)
+### For Admins
+- Dashboard with store statistics (revenue chart, best-selling products, order status breakdown)
+- Product management (full CRUD + image upload)
+- Category management
+- Order management (payment verification, status updates)
+- Customer management (view profile & purchase history of each customer)
+- Admins cannot make purchases (consistent role separation)
 
-## 🗂️ Struktur Project
+## 🗂️ Project Structure
 
 ```
 techmart-ecommerce/
 ├── backend/              # Golang REST API
-│   ├── config/           # Konfigurasi database
+│   ├── config/           # Database configuration
 │   ├── controllers/      # Business logic
 │   ├── middleware/       # Auth & role middleware
-│   ├── models/           # Struktur data (GORM models)
-│   ├── routes/           # Definisi routing API
-│   ├── utils/            # Helper functions (JWT, hashing, dll)
+│   ├── models/           # Data structures (GORM models)
+│   ├── routes/           # API route definitions
+│   ├── utils/            # Helper functions (JWT, hashing, etc.)
 │   └── main.go
 └── frontend/             # Angular application
     └── src/app/
         ├── auth/          # Login, Register, Forgot Password
-        ├── dashboard/     # Dashboard utama
-        ├── products/      # Katalog, Detail, Kelola Produk
-        ├── cart/          # Keranjang belanja
-        ├── orders/        # Riwayat & Kelola Pesanan
-        ├── profile/       # Edit profil
-        ├── users/         # Kelola Customer (admin)
-        ├── stats/         # Dashboard Statistik (admin)
-        └── notifications/ # Notifikasi in-app
+        ├── dashboard/     # Main dashboard
+        ├── products/      # Catalog, Detail, Product Management
+        ├── cart/          # Shopping cart
+        ├── orders/        # Order history & Order Management
+        ├── profile/       # Edit profile
+        ├── users/         # Customer Management (admin)
+        ├── stats/         # Statistics Dashboard (admin)
+        └── notifications/ # In-app notifications
 ```
 
-## 🚀 Cara Menjalankan di Lokal
+## 🚀 Running Locally
 
-### Prasyarat
+### Prerequisites
 - [Go](https://go.dev/dl/) 1.22+
 - [Node.js](https://nodejs.org/) 18+ & Angular CLI
 - MySQL
 
-### 1. Clone Repository
+### 1. Clone the Repository
 ```bash
 git clone https://github.com/Bronsonsiallagan/techmart-ecommerce.git
 cd techmart-ecommerce
 ```
 
-### 2. Setup Backend
+### 2. Backend Setup
 ```bash
 cd backend
 go mod tidy
 ```
 
-Buat file `.env` (contoh ada di `.env.example`):
+Create a `.env` file (see `.env.example` for reference):
 ```env
 DB_USER=root
 DB_PASSWORD=
 DB_HOST=127.0.0.1
 DB_PORT=3306
 DB_NAME=techmart
-JWT_SECRET=ganti_dengan_string_rahasia_anda
+JWT_SECRET=replace_with_your_own_secret_string
 ```
 
-Buat database MySQL:
+Create the MySQL database:
 ```sql
 CREATE DATABASE techmart;
 ```
 
-Jalankan server:
+Run the server:
 ```bash
 go run main.go
 ```
-Backend akan berjalan di `http://localhost:8080`
+The backend will run on `http://localhost:8080`
 
-### 3. Setup Frontend
-Buka terminal baru:
+### 3. Frontend Setup
+Open a new terminal:
 ```bash
 cd frontend
 npm install
 ng serve
 ```
-Frontend akan berjalan di `http://localhost:4200`
+The frontend will run on `http://localhost:4200`
 
-## 📋 API Endpoints (Ringkasan)
+## 📋 API Endpoints (Summary)
 
-| Method | Endpoint | Deskripsi | Akses |
-|--------|----------|-----------|-------|
-| POST | `/api/auth/register` | Registrasi akun baru | Publik |
-| POST | `/api/auth/login` | Login | Publik |
-| GET | `/api/products` | Lihat semua produk | Publik |
-| POST | `/api/products` | Tambah produk | Admin |
-| GET | `/api/cart` | Lihat keranjang | Customer |
+| Method | Endpoint | Description | Access |
+|--------|----------|-------------|--------|
+| POST | `/api/auth/register` | Register a new account | Public |
+| POST | `/api/auth/login` | Login | Public |
+| GET | `/api/products` | List all products | Public |
+| POST | `/api/products` | Create a product | Admin |
+| GET | `/api/cart` | View shopping cart | Customer |
 | POST | `/api/orders` | Checkout | Customer |
-| GET | `/api/admin/orders` | Lihat semua pesanan | Admin |
-| GET | `/api/admin/stats` | Statistik toko | Admin |
+| GET | `/api/admin/orders` | View all orders | Admin |
+| GET | `/api/admin/stats` | Store statistics | Admin |
 
-_Dokumentasi API lengkap dapat dilihat di kode `routes/routes.go`._
+_Full API documentation can be found in `routes/routes.go`._
 
-## 🎯 Highlight Teknis
+## 🎯 Technical Highlights
 
-- **Role-Based Access Control** diterapkan konsisten di backend (middleware) dan frontend (route guard), bukan hanya menyembunyikan UI
-- **Data integrity protection** — produk yang sudah pernah dipesan tidak bisa dihapus untuk menjaga riwayat transaksi tetap utuh
-- **Pagination** diterapkan di backend untuk performa yang lebih baik pada dataset besar
-- **File upload** untuk gambar produk, foto profil, dan bukti transfer pembayaran
-- **In-app notification system** dengan polling untuk update real-time-ish
+- **Role-Based Access Control** enforced consistently on both backend (middleware) and frontend (route guards), not just hidden UI elements
+- **Data integrity protection** — products that have already been ordered cannot be deleted, preserving transaction history
+- **Pagination** implemented at the backend level for better performance on larger datasets
+- **File upload** support for product images, profile photos, and payment proofs
+- **In-app notification system** with polling for near real-time updates
 
-## 👤 Kontak
+## 👤 Contact
 
 **Bronson Siallagan**
 GitHub: [@Bronsonsiallagan](https://github.com/Bronsonsiallagan)
 
 ---
 
-_Project ini dibuat sebagai bagian dari portofolio pengembangan web full-stack._
+_This project was built as part of a full-stack web development portfolio._
