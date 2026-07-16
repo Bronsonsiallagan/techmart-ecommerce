@@ -2,10 +2,6 @@
 
 TechMart is a full-stack e-commerce application for selling electronic products, built from scratch using **Golang** (backend), **Angular** (frontend), and **MySQL** (database). This project covers a complete e-commerce business flow from authentication, product management, shopping cart, checkout, manual payment, to an admin dashboard with sales statistics.
 
-## 🔗 Live Demo
-
-- **Frontend:** _(to be added after deployment)_
-- **Backend API:** _(to be added after deployment)_
 
 ## 🛠️ Tech Stack
 
